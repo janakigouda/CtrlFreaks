@@ -12,10 +12,8 @@ This document provides an overview of the technology stack used in the Fish Watc
 
 ## Backend Technologies
 
-- **Node.js**: JavaScript runtime for server-side development.
-- **Express.js**: Web application framework for Node.js.
-- **MongoDB**: NoSQL database for storing and managing data.
-- **Python**: Programming language for backend development and data processing.
+- **PostgreSQL**: RDBMS database for storing and managing data.
+- **Python**: Programming language for machine learning backend development and data processing.
 
 ## Data Processing and Analysis
 
