@@ -29,5 +29,6 @@
 * Since the farmer may reside in an area with poor network bandwidth, utilizing web sockets, which would be ideal for periodically updating data, becomes impractical. Therefore, we opt for a normal HTTP connection. In this setup, if necessary, the frontend code can independently make AJAX calls periodically to fetch the updated data, especially for live metrics.
 ## Dashboard generation for farmers
 * When the farmer logs in there will be a section in the app to generate dashboards , he/she can select from the already pre-existing panels which they deem is important to them. They will have separate analytical and real time sections.
-* The selected questions will generate dashboard via post request in metabase/ grafana which will be needed to be embedded into the application
+* The selected questions will generate a dashboard via a POST request in Metabase/Grafana, which will need to be embedded into the application maybe by admin and its id gets stored in postgres corresponding to customer.
+* Upon opening the application the corrsponding dashboards for the customer will only be fetched.
 
