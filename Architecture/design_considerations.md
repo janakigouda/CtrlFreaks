@@ -2,6 +2,7 @@
 ## PubSub
 * Utilizes Pub/Sub for efficient and scalable message queuing, enabling seamless and decoupled data ingestion from various sources.
 ## Dataflow Streaming Pipeline
+* Since the hardware devices operate in poor bandwidth area hence the input data from the source will not have the metadata such as enclosure_id, farm_id etc. We will only be sending the current reading along with the device id for ensuring smaller data packets.
 * Aggregates data every 30 seconds, acting as a limit check on the amount of storage being utilized, particularly if the frequency from hardware devices is high.
 * Enriches the data using Apache Beam pipeline's side input functionality. It fetches data from PostgreSQL, caching it to map the enclosure and farm for any input coming from a device.
 * Updated periodically via a cron job every hour.
@@ -22,7 +23,12 @@
 ## Metabase
 * Ideal for visualizing analytical data, Metabase offers excellent support for analytical use cases.
 
-# Dashboard generation for farmers
+
+# Application
+## Communication protocol between farmer and app
+* Since the farmer may reside in an area with poor network bandwidth, utilizing web sockets, which would be ideal for periodically updating data, becomes impractical. Therefore, we opt for a normal HTTP connection. In this setup, if necessary, the frontend code can independently make AJAX calls periodically to fetch the updated data, especially for live metrics.
+## Dashboard generation for farmers
 * When the farmer logs in there will be a section in the app to generate dashboards , he/she can select from the already pre-existing panels which they deem is important to them. They will have separate analytical and real time sections.
-* The selected questions will generate dashboard via post request in metabase/ grafana which will get embedded into the application
+* The selected questions will generate a dashboard via a POST request in Metabase/Grafana, which will need to be embedded into the application maybe by admin and its id gets stored in postgres corresponding to customer.
+* Upon opening the application the corrsponding dashboards for the customer will only be fetched.
 
