@@ -4,6 +4,7 @@
 
 Fish Watch is a comprehensive system designed to assist farmers in managing fish farms effectively. It provides real-time monitoring, customizable dashboards, alerting mechanisms, and insights to optimize harvests. This README file provides an overview of the Fish Watch system, its features, requirements, and considerations.
 
+Container Diagram:
 
 ![alt text](https://github.com/janakigouda/IDfy_CtrlFreaks/blob/main/Diagrams/Container%20Diagram.png)
 
